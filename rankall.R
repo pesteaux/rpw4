@@ -1,7 +1,5 @@
-rankhospital <- function(state, outcome = c("pneumonia","heart attack","heart failure"), num="best") {
+rankall <- function(outcome, num = "best") {
   
-  usage <- "Enter the two-letter abbreviation of a state (with no period) and an outcome of either \'pneumonia\', \'heart attack\' or \'heart failure\'."
-
   ## Read outcome data
 #  setwd("U:/School/Coursera/R Programming/RPW4/rprog-data-ProgAssignment3-data/")
   setwd("/Users/pesto/Documents/school/coursera/rprogramming")
@@ -10,6 +8,8 @@ rankhospital <- function(state, outcome = c("pneumonia","heart attack","heart fa
   ## Check that state and outcome are valid
   ## State
   stateList<-tolower(unique(outcomeFile$State))
+  stateList<-stateList[!duplicated(stateList)]
+  print(stateList)
   if(any(stateList==tolower(state))) {}
   else{stop("invalid state")}
   ## Outcome
